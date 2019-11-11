@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+       <title>sign in with google</title>
+       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+       <link rel="stylesheet" type="text/css" href="search.css">
+
+    </head>
+
+    <body>
+        <div id="oxford english-greek"></div>
+        <div id="root"></div>
+        <script type="text/babel">
+          var sum = <h3>I am pandy</h3>;
+          var item={name:"dimitra",
+                    phone:69833501}
+          function Clac(props){
+            var res = props.x*props.y;
+            var summ=0,add=0;
+            for(summ=0;summ<5;summ++){
+              add=add+props.arr[summ];
+            }
+
+            return <p>msn:{res} add:{add} {props.tg}</p>;
+          }
+          var styleObject = {
+            backgroundColor: 'red',
+            color:'blue',
+            fontSize: 25,
+            width: 100
+          }
+          var stl = <h2 style={{width:700,height:440,color:'green'}}>Success</h2>
+          var pha = <h5 style={styleObject}>{item.name}:{item.phone}:</h5>
+          ReactDOM.render(
+              <Clac x="12" y="11" arr={[2,4,5,3,3]} tg={pha} />,
+              document.getElementById("root")
+          );
+
+
+        </script>
+
+        <div id="searc">
+          <form action="newRadio">
+
+                <input  name="query" type="text" placeholder="what do you want to listen today?"><br>
+
+          </form>
+        </div>
+        <div id="searchf"></div>
+
+
+    </body>
+
+</html>

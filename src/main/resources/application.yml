@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 292309184354-sk445fm8neokp2dsjmiv509abuptbkn5.apps.googleusercontent.com
+            client-secret: voMiOB2f3AXimf7LHf7KeUNf
+            redirect-uri-template: localhost:8080/login
+            accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+            userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+            scope: https://www.googleapis.com/auth/youtube
+          facebook:
+            client-id: 724432274692595
+            redirect-uri-template: localhost:8080/login
+      resource:
+        userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+ 
