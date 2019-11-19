@@ -17,5 +17,9 @@ spring:
         userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
-
- 
+  h2:
+    console:
+      enabled: true
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:radiousers

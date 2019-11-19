@@ -1,0 +1,28 @@
+#container{
+  height: 100%;
+  width: 100%;
+  font-size: 0;
+}
+
+#radios, #search{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+}
+#radios{
+  width: 20%;
+  font-size: 16px;
+  background: #1275ae;
+}
+
+#search{
+  width: 80%;
+  font-size: 22px;
+  background: #e0e0e0;
+}
+
+input[type=text]{
+  width: 90%;
+  padding: 5% 5%;
+}
