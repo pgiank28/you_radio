@@ -1,24 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-       <title>sign in with google</title>
+       <title>search page</title>
        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-       <link rel="stylesheet" type="text/css" href="search.css">
+       <link rel="stylesheet" type="text/css" href="skeleton.css">
 
     </head>
 
     <body>
-        <div id="container">
-        Listening</div>
+  <div id="container">
 
-	<audio controls>
+    <div id="radios">
+
+    <th:block th:each="song : ${query}">
+    <p th:text="${song.name}"></p>
+    <p th:text="${song.artist}"></p>
+
+  </div>
+
+  <div id="search">
+    <h3 th:text="${nquery.artist}"></h3>
+    <h5 th:text="${nquery.name}"></h5>
+  </div>
   
-  	<source src="/home/pantelis-g/Videos/iammalala-p02.mp4" type="audio/mpeg">
-	Your browser does not support the audio element.
-	</audio>
-
+  </div>
     </body>
 
 </html>

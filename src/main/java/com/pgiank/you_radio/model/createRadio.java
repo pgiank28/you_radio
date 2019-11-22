@@ -20,6 +20,11 @@ public class createRadio{
   @Autowired
   httpRequests hrq;
 
+  public song createNewRadio(String query){
+    song ws = new song("imagine dragons","radioactive","night visions",3,"https://www.youtube.com");
+    return ws;
+  }
+
   public List<song> radioSongs(String query){
     List<song> tmp = new ArrayList<song>();
 

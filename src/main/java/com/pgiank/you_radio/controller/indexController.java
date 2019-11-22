@@ -10,9 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.pgiank.you_radio.model.createRadio;
 import com.pgiank.you_radio.model.song;
-import com.pgiank.you_radio.model.fetchSongs;
 import com.pgiank.you_radio.model.Repositories.queryRepo;
-import com.pgiank.you_radio.model.queries;
 import com.pgiank.you_radio.view.basicView;
 
 @Controller
@@ -23,6 +21,8 @@ public class indexController{
 
         @Autowired
         queryRepo repo;
+
+
 
         @RequestMapping("/")
         public ModelAndView basicPage(){
@@ -40,6 +40,7 @@ public class indexController{
         @RequestMapping("/browse")
         public ModelAndView browsePage(){
             ModelAndView mav = new ModelAndView();
+            mav = basicView.getQueriesAndSetObjects(mav,repo);
             mav.setViewName("basic");
             return mav;
         }
@@ -47,18 +48,17 @@ public class indexController{
         @RequestMapping("/newRadio")
         public ModelAndView initRadio(@RequestParam String query){
           ModelAndView mv = new ModelAndView();
-          queries qr = new queries(query,"you tube");//Execute the query in the model package
+
+          song qr = cr.createNewRadio(query);
+          repo.save(qr);
+
+          mv.addObject("nquery",qr);
+
+          mv = basicView.getQueriesAndSetObjects(mv,repo);
           mv.setViewName("search");
           return mv;
         }
 
-        @RequestMapping("/addRadio")
-        public ModelAndView setBasicPage(@RequestParam queries radio){
-          ModelAndView mv = new ModelAndView();
-         //Save the radio and add it to the left column in basic.html
-          mv.setViewName("search");
-          return mv;
-        }
 
         @RequestMapping("/radio/{radio}")
         public ModelAndView getQueries(@PathVariable int ask){

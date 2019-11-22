@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+
 import java.util.Arrays;
 
 @SpringBootApplication

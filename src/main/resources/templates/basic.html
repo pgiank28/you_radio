@@ -13,14 +13,18 @@
 <body>
 
 <div id="container">
-  <div id="radios"></div>
+  <div id="radios">
+  <th:block th:each="qr: ${query}">
+<p th:text="${qr.description}"></p>
+</div>
+
   <div id="search">
     <form action="newRadio">
 
           <input  name="query" type="text" placeholder="what do you want to listen today?"><br>
 
     </form></div>
-  
+
 </div>
 
 </body>
