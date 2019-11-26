@@ -21,7 +21,7 @@ public class createRadio{
   httpRequests hrq;
 
   public song createNewRadio(String query){
-    song ws = new song("imagine dragons","radioactive","night visions",3,"https://www.youtube.com");
+    song ws = new song(query,query,"night visions",3,"https://www.youtube.com");
     return ws;
   }
 

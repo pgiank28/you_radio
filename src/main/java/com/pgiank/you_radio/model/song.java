@@ -20,6 +20,7 @@ public class song {
      public int rank;
      public String url;
 
+     public song(){ }
 	   public song(String artist, String name,String album,int rank, String url) {
 
 		     this.artist = artist;

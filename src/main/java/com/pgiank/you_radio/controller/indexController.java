@@ -63,7 +63,7 @@ public class indexController{
         @RequestMapping("/radio/{radio}")
         public ModelAndView getQueries(@PathVariable int ask){
           ModelAndView mnv = new ModelAndView();
-          queries qu = repo.findById(ask).orElse(new queries(null,null)); //Search for the Radio in h2 database
+          //queries qu = repo.findById(ask).orElse(new queries(null,null)); //Search for the Radio in h2 database
           //Add radio song in page
           mnv.setViewName("radio");
           return mnv;
