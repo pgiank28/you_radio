@@ -20,18 +20,9 @@ public class createRadio{
   @Autowired
   httpRequests hrq;
 
-  public song createNewRadio(String query){
-    song ws = new song(query,query,"night visions",3,"https://www.youtube.com");
+  public List<song> createNewRadio(String query){
+    List<song> ws = hrq.searchYoutube(query);
+
     return ws;
-  }
-
-  public List<song> radioSongs(String query){
-    List<song> tmp = new ArrayList<song>();
-
-    return tmp;
-  }
-
-  public void findSongs(String query){
-      StringBuffer sbf = hrq.searchYoutube(query);
   }
 }

@@ -40,7 +40,7 @@ public class indexController{
         @RequestMapping("/browse")
         public ModelAndView browsePage(){
             ModelAndView mav = new ModelAndView();
-            mav = basicView.getQueriesAndSetObjects(mav,repo);
+            mav = basicView.getQueriesAndSetObjects(mav,repo,null);
             mav.setViewName("basic");
             return mav;
         }
@@ -49,12 +49,12 @@ public class indexController{
         public ModelAndView initRadio(@RequestParam String query){
           ModelAndView mv = new ModelAndView();
 
-          song qr = cr.createNewRadio(query);
-          repo.save(qr);
+          List<song> qr = cr.createNewRadio(query);
+          /*repo.save(qr);
 
-          mv.addObject("nquery",qr);
+          mv.addObject("nquery",qr);*/
 
-          mv = basicView.getQueriesAndSetObjects(mv,repo);
+          mv = basicView.getQueriesAndSetObjects(mv,repo,qr);
           mv.setViewName("search");
           return mv;
         }

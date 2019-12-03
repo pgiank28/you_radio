@@ -21,10 +21,40 @@
   </div>
 
   <div id="search">
-    <h3 th:text="${nquery.artist}"></h3>
-    <h5 th:text="${nquery.name}"></h5>
+    <div class="songes">
+    <p th:text="${nquery[0].artist}"></p>
+    <p th:text="${nquery[0].name}"></p>
   </div>
-  
+  <div class="songes">
+  <p th:text="${nquery[1].artist}"></p>
+  <p th:text="${nquery[1].name}"></p>
+</div>
+<div class="songes">
+<p th:text="${nquery[2].artist}"></p>
+<p th:text="${nquery[2].name}"></p>
+</div>
+
+  </div>
+
+  <div id="mainAudio"></div>
+  <script type="text/babel" th:inline="javascript">
+  var mainSong = [[${news}]]
+  var ret = <div></div>
+  if(mainSong != null){
+    ret = <iframe width="300" height="100" th:src="mainSong"></iframe>
+  }
+  ReactDOM.render(ret,document.getElementById("mainAudio"))
+  </script>
+
+<div data-video="Q5l2ChAqRDg"
+         data-autoplay="0"
+         data-loop="1"
+         id="youtube-audio">
+  </div>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
+
+
   </div>
     </body>
 

@@ -73,6 +73,19 @@
    					<groupId>org.springframework.security</groupId>
    					<artifactId>spring-security-oauth2-jose</artifactId>
 		</dependency>
+
+		<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-youtube</artifactId>
+      <version>v3-rev212-1.25.0</version>
+    </dependency>
+
+		<dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client-gson</artifactId>
+      <version>1.25.0</version>
+    </dependency>
+
 	</dependencies>
 
 	<build>
