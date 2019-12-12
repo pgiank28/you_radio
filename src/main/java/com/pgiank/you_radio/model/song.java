@@ -19,15 +19,17 @@ public class song {
      public String album;
      public int rank;
      public String url;
+     public String videoId;
 
      public song(){ }
-	   public song(String artist, String name,String album,int rank, String url) {
+	   public song(String artist, String name,String album,int rank, String url,String videoId) {
 
 		     this.artist = artist;
          this.name = name;
          this.album = album;
 		     this.rank = rank;
 		     this.url = url;
+         this.videoId = videoId;
 	   }
 
 
@@ -49,6 +51,14 @@ public class song {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getVideoId(){
+      return videoId;
+    }
+
+    public void setVideoId(String vid){
+      this.videoId = vid;
     }
 
 

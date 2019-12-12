@@ -4,7 +4,7 @@
   font-size: 0;
 }
 
-#radios, #search{
+#radios, #search, #activities{
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -17,12 +17,40 @@
 }
 
 #search{
-  width: 80%;
-  font-size: 22px;
-  background: #e0e0e0;
+  width: 60%;
+  font-size: 18px;
+  background: #f0f0f0;
 }
 
-.songes{
-  background: #1275ae;
+#activities{
+  width: 20%;
+  font-size: 16px;
+}
+.songPlaying{
+  background: #200000;
   border-width: 6px;
+  font-family: serif;
+  color: #75ae75;
+}
+
+h6{
+  background: #200000;
+  border-width: 6px;
+  font-family: serif;
+  color: #75ae75;
+}
+
+#nowPlaying, #youtube-audio{
+  display: inline-block;
+  vertical-align: middle;
+}
+#nowPlaying{
+  float: right;
+}
+#activeSong{
+  background: #f01104;
+}
+
+#youtube-audio{
+  vertical-align: middle;
 }

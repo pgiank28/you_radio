@@ -46,7 +46,7 @@ public class httpRequests{
             YouTube.Search.List sr = youtube.search().list("id,snippet");
             sr.setQ(query);
             sr.setType("video");
-            sr.setMaxResults(new Long(3));
+            sr.setMaxResults(new Long(5));
 
             SearchListResponse searchResponse = sr.execute();
             List<SearchResult> searchResultList = searchResponse.getItems();

@@ -11,9 +11,13 @@ public class videoToSongConverter{
     dirtyVid = dirtyVid.replaceAll("Official Video","");
     dirtyVid = dirtyVid.replaceAll("Official Music Video","");
     dirtyVid = dirtyVid.replaceAll("Lyric Video","");
-    String[] pts = dirtyVid.split("-");
+    dirtyVid = dirtyVid.replaceAll("Lyrics","");
 
-    song ns = new song(pts[0].replaceAll("\\p{P}",""),pts[1].replaceAll("\\p{P}",""),dirtyVid,1,"https://www.youtube.com/embed/"+res.getId().getVideoId()+"?rel=0");
+    String[] pts = dirtyVid.split("-");
+    if(pts.length>2 || pts.length == 0){
+      return new song();
+    }
+    song ns = new song(pts[0].replaceAll("\\p{P}",""),pts[1].replaceAll("\\p{P}",""),dirtyVid,1,"https://www.youtube.com/embed/"+res.getId().getVideoId()+"?rel=0",res.getId().getVideoId());
     return ns;
   }
 }

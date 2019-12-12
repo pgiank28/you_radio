@@ -14,48 +14,60 @@
 
     <div id="radios">
 
-    <th:block th:each="song : ${query}">
-    <p th:text="${song.name}"></p>
-    <p th:text="${song.artist}"></p>
-
+    <h6 th:each="song : ${query}" th:utext="${song.artist + '<br />'+song.name}"></h6>
   </div>
 
   <div id="search">
-    <div class="songes">
-    <p th:text="${nquery[0].artist}"></p>
-    <p th:text="${nquery[0].name}"></p>
-  </div>
-  <div class="songes">
-  <p th:text="${nquery[1].artist}"></p>
-  <p th:text="${nquery[1].name}"></p>
-</div>
-<div class="songes">
-<p th:text="${nquery[2].artist}"></p>
-<p th:text="${nquery[2].name}"></p>
-</div>
 
-  </div>
+  <script th:inline="javascript">
+  var songs = [[${nquery}]];
+  var inn="<div><table id='songTable'>";
 
-  <div id="mainAudio"></div>
-  <script type="text/babel" th:inline="javascript">
-  var mainSong = [[${news}]]
-  var ret = <div></div>
-  if(mainSong != null){
-    ret = <iframe width="300" height="100" th:src="mainSong"></iframe>
+  for(i=0;i<songs.length;i++){
+      inn = inn + "<tr onclick='playSong(this)' data-vid='"+songs[i].videoId+"'><td>"+songs[i].artist+"<br>"+songs[i].name+"</td></tr>";
   }
-  ReactDOM.render(ret,document.getElementById("mainAudio"))
+  document.getElementById('search').innerHTML = inn + "</table></div>";
+
+  function playSong(s){
+    var cell = document.getElementById("search").getElementsByTagName("tr");
+    for(n=0;n<cell.length;n++){
+      if(cell[n].classList.contains('songPlaying')){
+        cell[n].classList.remove('songPlaying');
+      }
+      if(s.isSameNode(cell[n])){
+        s.classList.add('songPlaying');
+      }
+    }
+    document.getElementById("songArtist").innerHTML = s.innerHTML;
+    reloadPlayer(s.getAttribute("data-vid"));
+  }
+
+
   </script>
 
-<div data-video="Q5l2ChAqRDg"
+</div>
+
+  <div id="activities">
+    <div id="nowPlaying">
+  <h1 style="float:center">Now Playing</h1>
+  <h4 id="songArtist"></h4>
+  </div>
+
+<div id="youtube-audio"
+         th:data-video="${nquery[0].videoId}"
          data-autoplay="0"
-         data-loop="1"
-         id="youtube-audio">
+         data-loop="1"></div>
   </div>
+
+
+  <div id='friends'></div>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
+  <script src="youtubeAudio.js"></script>
 
+</div>
 
-  </div>
+</div>
+
     </body>
 
 </html>
