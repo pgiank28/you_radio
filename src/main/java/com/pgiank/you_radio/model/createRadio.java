@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/*Create a new radio station,based on a query */
 @Component("createRadio")
 public class createRadio{
 
@@ -18,10 +19,10 @@ public class createRadio{
   queryRepo repo;
 
   @Autowired
-  httpRequests hrq;
+  httpRequests requests;
 
   public List<song> createNewRadio(String query){
-    List<song> ws = hrq.searchYoutube(query);
+    List<song> ws = requests.searchYoutube(query);
 
     return ws;
   }
